@@ -19,16 +19,10 @@ public class UserController extends ApiController {
 
     private UserService userService;
 
-    private final UserCredentialsValidator userCredentialsValidator;
-
-    @InitBinder
-    public void initRegisterFormBinder(WebDataBinder binder) {
-        binder.addValidators(userCredentialsValidator);
-    }
 
     public UserController(UserService userService, UserCredentialsValidator userCredentialsValidator) {
         this.userService = userService;
-        this.userCredentialsValidator = userCredentialsValidator;
+        //this.userCredentialsValidator = userCredentialsValidator;
     }
 
     @GetMapping("user/authenticated")
@@ -38,8 +32,8 @@ public class UserController extends ApiController {
 
 
     @GetMapping("user/all")
-    public List getAllUsers(@RequestParam  String id) {
-        return userService.findAll(id);
+    public List getAllUsers(User user) {
+        return userService.findAll(user);
     }
 
     /*
@@ -47,15 +41,7 @@ public class UserController extends ApiController {
     public List getAllUsers() {
         return userService.findAll();
     }
-*/
-    @PostMapping("user")
-    public User create(@Valid @RequestBody UserCredentials userCredentials,
-                       BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            throw new ValidationException(bindingResult.getAllErrors().get(0).getDefaultMessage());
-        }
-        return userService.create(userCredentials);
-    }
+
 
     @GetMapping("user/in")
     public User auth(@RequestParam String login, @RequestParam String password) {
@@ -64,4 +50,5 @@ public class UserController extends ApiController {
         }
         return userService.findByLoginAndPassword(login, password).orElseThrow(() -> new ValidationException("Wrong login or password"));
     }
+    */
 }

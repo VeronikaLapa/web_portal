@@ -29,8 +29,8 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public List findAll(String id) {
-        return userRepository.findAll(id);
+    public List findAll(User user) {
+        return userRepository.findAll(String.valueOf(user.getId()));
     }
 
     /*

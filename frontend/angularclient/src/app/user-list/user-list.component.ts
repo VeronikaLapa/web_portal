@@ -11,12 +11,13 @@ export class UserListComponent implements OnInit {
 
   users: User[];
 
+
   constructor(private userService: UserService) {
   }
 
   ngOnInit() {
-    if (localStorage.getItem('token') !== null) {
-      this.userService.findAll(localStorage.getItem('token')).subscribe(data => {
+    if (this.userService.logIn) {
+      this.userService.findAll().subscribe(data => {
         this.users = data;
       });
     }

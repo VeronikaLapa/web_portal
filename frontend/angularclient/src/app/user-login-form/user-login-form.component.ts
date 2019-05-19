@@ -21,7 +21,7 @@ export class UserLoginFormComponent {
   }
 
   onSubmit() {
-    this.userService.login(this.login, this.password).subscribe(res => localStorage.setItem('token', res.id));
+    this.userService.login(this.login, this.password).subscribe((res: any ) => localStorage.setItem('token', res.token));
   }
   gotoUserList() {
     this.router.navigate(['api/user/all']);

@@ -23,8 +23,7 @@ public class UserCredentials {
     @Size(min = 3, max = 16)
     private String name;
 
-    @NotEmpty
-    @Size(min = 1, max = 64)
+
     private String confpassword;
 
     public String getLogin() {

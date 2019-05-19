@@ -14,8 +14,8 @@
             <li class="list-inline-item"><div *ngIf="logIn"> {{ login }}</div></li>
             <li class="list-inline-item"><a routerLink="api/user/all" class="btn btn-info">List Users</a></li>            
             <li class="list-inline-item"><a routerLink="api/user" class="btn btn-info">Add User</a></li>
-            <li class="list-inline-item"><a routerLink="api/user/in" class="btn btn-info" *ngIf="!logIn">Log in</a></li>
-            <li class="list-inline-item"><a routerLink="/" class ="btn btn-info" (click)="logout()" *ngIf="logIn">Logout</a></li>
+            <li class="list-inline-item"><a routerLink="api/jwt" class="btn btn-info" *ngIf="!logIn">Log in</a></li>
+            <li class="list-inline-item"><a routerLink="/" class ="btn btn-info" (click)="userService.logout()" *ngIf="logIn">Logout</a></li>
                       
           </ul>
                   

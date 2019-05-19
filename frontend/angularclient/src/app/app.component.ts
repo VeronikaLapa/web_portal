@@ -12,11 +12,5 @@ export class AppComponent {
     this.title = 'Portal demo';
     this.login = '';
   }
-  public logout() {
-    localStorage.removeItem('token');
-  }
 
-  public get logIn(): boolean {
-    return (localStorage.getItem('token') !== null);
-  }
 }

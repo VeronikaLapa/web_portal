@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 public class ApiController {
     @ModelAttribute
     public User getUser(HttpServletRequest httpServletRequest) {
-        return (User) httpServletRequest.getAttribute("user");
+        User user = (User) httpServletRequest.getAttribute("user");
+        return user;
     }
 
 }

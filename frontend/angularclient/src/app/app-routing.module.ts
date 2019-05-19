@@ -7,7 +7,7 @@ import {UserLoginFormComponent} from './user-login-form/user-login-form.componen
 const routes: Routes = [
   { path: 'api/user/all', component: UserListComponent },
   { path: 'api/user', component: UserFormComponent },
-  { path: 'api/user/in', component: UserLoginFormComponent}
+  { path: 'api/jwt', component: UserLoginFormComponent}
 ];
 
 @NgModule({
