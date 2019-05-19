@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from './user-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string
   login: string
-  constructor() {
+  constructor(private userService: UserService) {
     this.title = 'Portal demo';
     this.login = '';
   }
-
+  public get isLogIn(): boolean {
+    return this.userService.logIn;
+  }
+  public logout() {
+    this.userService.logout();
+  }
 }
