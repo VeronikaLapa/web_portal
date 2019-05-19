@@ -11,11 +11,11 @@
           <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
                                      
           <ul class="text-center list-inline py-3">
-            <li><div *ngIf="logIn"> Profile</div></li>
+            <li class="list-inline-item"><div *ngIf="logIn"> {{ login }}</div></li>
             <li class="list-inline-item"><a routerLink="api/user/all" class="btn btn-info">List Users</a></li>            
             <li class="list-inline-item"><a routerLink="api/user" class="btn btn-info">Add User</a></li>
-            <li class="list-inline-item"><a routerLink="api/user/in" class="btn btn-info">Log in</a></li>
-            <li class="list-inline-item"><a routerLink="/" class ="btn btn-info" (click)="logout()">Logout</a></li>
+            <li class="list-inline-item"><a routerLink="api/user/in" class="btn btn-info" *ngIf="!logIn">Log in</a></li>
+            <li class="list-inline-item"><a routerLink="/" class ="btn btn-info" (click)="logout()" *ngIf="logIn">Logout</a></li>
                       
           </ul>
                   

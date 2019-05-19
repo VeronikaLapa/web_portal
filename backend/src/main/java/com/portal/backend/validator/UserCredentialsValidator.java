@@ -10,10 +10,10 @@ import javax.validation.ConstraintViolation;
 import java.util.Set;
 
 @Component
-public class UserCredentialsRegisterValidator implements Validator {
+public class UserCredentialsValidator implements Validator {
     private final UserService userService;
 
-    public UserCredentialsRegisterValidator(UserService userService) {
+    public UserCredentialsValidator(UserService userService) {
         this.userService = userService;
     }
 

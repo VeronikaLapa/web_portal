@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string
-  user_name: string
+  login: string
   constructor() {
     this.title = 'Portal demo';
-    this.user_name = '';
+    this.login = '';
   }
   public logout() {
     localStorage.removeItem('token');

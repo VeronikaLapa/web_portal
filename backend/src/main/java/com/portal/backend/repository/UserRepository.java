@@ -15,12 +15,6 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
     int countByLogin(String login);
 
-//    @Transactional
-//    @Modifying
-//    @Query(value = "UPDATE user SET passwordSha=?2 WHERE id=?1", nativeQuery = true)
-//    void updatePassword(long id, String password);
-
-    @Query(value = "SELECT * FROM user WHERE login=?1 AND password=?2", nativeQuery = true)
     Optional<User> findByLoginAndPassword(String login, String password);
 
     User save(User user);

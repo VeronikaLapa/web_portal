@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../user-service.service';
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-user-form',
@@ -18,10 +19,11 @@ export class UserFormComponent {
   }
 
   onSubmit() {
-    this.userService.save(this.user).subscribe(result => this.gotoUserList(), error => this.error = error.error.message);
+    this.userService.save(this.user).subscribe(result => {localStorage.setItem('token', result.id); this.error = ''; },
+        error => this.error = error.error.message);
   }
 
   gotoUserList() {
-    this.router.navigate(['/user/all']);
+    this.router.navigate(['api/user/all']);
   }
 }
