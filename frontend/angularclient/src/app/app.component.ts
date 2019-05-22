@@ -11,9 +11,10 @@ export class AppComponent {
   login: string
   constructor(private userService: UserService) {
     this.title = 'Portal demo';
-    this.login = '';
+    this.login = localStorage.getItem('name');
   }
   public get isLogIn(): boolean {
+    this.login = localStorage.getItem('name');
     return this.userService.logIn;
   }
   public logout() {

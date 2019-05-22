@@ -8,6 +8,7 @@ export class UserService {
 
   private usersUrl: string;
 
+  userName: string;
   /*
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -41,10 +42,19 @@ export class UserService {
   }
   public logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('name');
   }
 
   public get logIn(): boolean {
     return (localStorage.getItem('token') !== null);
+  }
+
+  public setUserName() {
+    this.http
+      .get<User>(this.usersUrl + '/api/authenticated', {headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.getToken()
+        }}).subscribe(usr => this.userName = usr.name);
   }
 
 }
