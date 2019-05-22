@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {UserService} from './user-service.service';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+import { UserUpdateFormComponent } from './user-update-form/user-update-form.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
     AppComponent,
     UserListComponent,
     UserFormComponent,
-    UserLoginFormComponent
+    UserLoginFormComponent,
+    UserUpdateFormComponent
   ],
   imports: [
     BrowserModule,

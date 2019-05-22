@@ -15,7 +15,7 @@
             <li class="list-inline-item"><a routerLink="api/user" class="btn btn-info">Register</a></li>
             <li class="list-inline-item"><a routerLink="api/jwt" class="btn btn-info" *ngIf="!isLogIn">Log in</a></li>
             <li class="list-inline-item"><a routerLink="/" class ="btn btn-info" (click)="logout()" *ngIf="isLogIn">Logout</a></li>
-                      
+             <li class="list-inline-item"><a routerLink="api/user/update" class ="btn btn-info" *ngIf="isLogIn">Update</a></li>         
           </ul>
                   
         </div>

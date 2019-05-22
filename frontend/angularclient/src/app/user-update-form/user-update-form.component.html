@@ -1,0 +1,38 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #userUpdateForm="ngForm">
+      <div [hidden]="" class="alert alert-danger" *ngIf="error.length > 0">{{ error }}</div>
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" [(ngModel)]="user.login"
+               class="form-control" id="login" name="login" placeholder="Enter your login"
+              >
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="user.name"
+               class="form-control" id="name" name="name" placeholder="Enter your name"
+               >
+      </div>
+     <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" [(ngModel)]="user.email"
+               class="form-control" id="email" name="email" placeholder="Enter your email address"
+               >
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" [(ngModel)]="user.password"
+               class="form-control" id="password" name="password" placeholder="Enter your password"
+               >
+      </div>
+     <div class="form-group">
+        <label for="confpassword">Confirm password</label>
+        <input type="text" [(ngModel)]="user.confpassword"
+               class="form-control" id="confpassword" name="confpassword" placeholder="Confirm your password"
+               >
+      </div>
+      <button type="submit" [disabled]="!userUpdateForm.form.valid" class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

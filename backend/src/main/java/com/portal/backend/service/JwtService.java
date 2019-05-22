@@ -44,5 +44,6 @@ public class JwtService {
             throw new RuntimeException("Can't create JWT.", exception);
         }
     }
+
 }
 

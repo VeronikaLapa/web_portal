@@ -32,6 +32,12 @@ export class UserService {
     return this.http.post<User>(this.usersUrl + '/user', user);
   }
 
+  public  update(user: User) {
+    return this.http.post<User>(this.usersUrl + '/user/update', user, {headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + this.getToken()
+      }});
+  }
   public login(login: string, password: string) {
     return this.http.get(this.usersUrl + '/jwt', {
       params: new HttpParams().set('login', login).set('password', password)

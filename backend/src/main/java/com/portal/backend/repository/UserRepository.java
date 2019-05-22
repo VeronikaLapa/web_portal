@@ -21,4 +21,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "SELECT id, login, name, email, password, creation_time FROM user WHERE id=?1 UNION SELECT id,login, name, email, '', creation_time FROM user WHERE id!=?1", nativeQuery = true)
     List<User> findAll(String id);
+
+    /*
+    @Modifying
+    @Query("UPDATE user u SET u.login = ?1, u.name = ?2, u.email = ?3, u.passwor = ?4 where u.id = ?5")
+    User setUserInfoById(String login, String name, String email, String password, long id);
+*/
 }

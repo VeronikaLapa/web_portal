@@ -30,7 +30,8 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
                 String authorization = request.getHeader("Authorization");
                 if (authorization != null && authorization.startsWith(AUTHORIZATION_PREFIX)) {
                     String token = authorization.substring(AUTHORIZATION_PREFIX.length()).trim();
-                    jwtService.find(token).ifPresent(user -> request.setAttribute("user", user));
+                    jwtService.find(token).ifPresent(
+                            user -> request.setAttribute("user", user));
                 }
             }
         }

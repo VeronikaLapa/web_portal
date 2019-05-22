@@ -14,41 +14,25 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserController extends ApiController {
 
     private UserService userService;
 
 
-    public UserController(UserService userService, UserCredentialsValidator userCredentialsValidator) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        //this.userCredentialsValidator = userCredentialsValidator;
     }
 
-    @GetMapping("user/authenticated")
+    @GetMapping("authenticated")
     public User getAuthenticatedUser(User user) {
         return user;
     }
 
 
-    @GetMapping("user/all")
+    @GetMapping("all")
     public List getAllUsers(User user) {
         return userService.findAll(user);
     }
 
-    /*
-    @GetMapping("user/all")
-    public List getAllUsers() {
-        return userService.findAll();
-    }
-
-
-    @GetMapping("user/in")
-    public User auth(@RequestParam String login, @RequestParam String password) {
-        if (!userService.findByLoginAndPassword(login, password).isPresent()) {
-            throw new ValidationException("Wrong login or password");
-        }
-        return userService.findByLoginAndPassword(login, password).orElseThrow(() -> new ValidationException("Wrong login or password"));
-    }
-    */
 }
