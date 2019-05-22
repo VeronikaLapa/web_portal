@@ -23,7 +23,8 @@ export class UserLoginFormComponent {
   onSubmit() {
     this.userService.login(this.login, this.password).subscribe(
       (res: any ) => {localStorage.setItem('token', res.token);
-      localStorage.setItem('name', this.login); },
+      localStorage.setItem('name', this.login);
+      this.error = ''; },
       error => this.error = error.error.message);
   }
 

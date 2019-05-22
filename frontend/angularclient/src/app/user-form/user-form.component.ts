@@ -18,8 +18,7 @@ export class UserFormComponent {
   }
 
   onSubmit() {
-    this.userService.save(this.user).subscribe(result => {localStorage.setItem('token', result.id); this.error = ''; },
+    this.userService.save(this.user).subscribe(result => { this.error = ''; },
         error => this.error = error.error.message);
   }
-
 }

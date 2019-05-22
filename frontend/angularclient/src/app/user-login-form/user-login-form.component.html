@@ -18,6 +18,7 @@
       </div>
       <div [hidden]="!passwordLocal.pristine" class="alert alert-danger">Password is required</div>
       <button type="submit" [disabled]="!loginForm.form.valid" class="btn btn-info">Submit</button>
+      <a routerLink="/"  class="btn btn-info">Cancel</a>
     </form>
   </div>
 </div>
