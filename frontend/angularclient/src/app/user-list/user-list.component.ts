@@ -11,15 +11,28 @@ export class UserListComponent implements OnInit {
 
   users: User[];
 
+  login: string;
+  email: string;
+  name: string;
+
 
   constructor(private userService: UserService) {
+    this.login = '';
+    this.name = '';
+    this.email = '';
   }
 
   ngOnInit() {
-    if (this.userService.logIn) {
-      this.userService.findAll().subscribe(data => {
-        this.users = data;
-      });
-    }
+    this.findall();
+  }
+  findall() {
+    this.userService.findAll().subscribe(data => {
+      this.users = data;
+    });
+  }
+  onSubmit() {
+    this.userService.findAllFiltered(this.login, this.name, this.email).subscribe(
+      data => this.users = data
+    );
   }
 }

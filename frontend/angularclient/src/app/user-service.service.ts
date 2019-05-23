@@ -20,7 +20,6 @@ export class UserService {
   }
 
   public findAll(): Observable<User[]> {
-    // return this.http.get<User[]>(this.usersUrl + '/user/all',{headers: this.headers} );
     return this.http
       .get<User[]>(this.usersUrl + '/user/all', {headers: {
           'Content-Type': 'application/json',
@@ -28,6 +27,13 @@ export class UserService {
         }});
   }
 
+  public findAllFiltered(login: string, name: string, email: string): Observable<User[]> {
+    return this.http
+      .get<User[]>(this.usersUrl + '/user/all/filtered', {headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.getToken()
+        }, params: new HttpParams().set('login', login).set('name', name).set('email', email)});
+  }
   public save(user: User) {
     return this.http.post<User>(this.usersUrl + '/user', user);
   }
@@ -55,12 +61,6 @@ export class UserService {
     return (localStorage.getItem('token') !== null);
   }
 
-  public setUserName() {
-    this.http
-      .get<User>(this.usersUrl + '/api/authenticated', {headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + this.getToken()
-        }}).subscribe(usr => this.userName = usr.name);
-  }
+
 
 }

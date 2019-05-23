@@ -12,13 +12,15 @@ export class UserFormComponent {
 
   user: User;
   error: string;
+  message: string;
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
     this.user = new User();
     this.error = '';
+    this.message = '';
   }
 
   onSubmit() {
-    this.userService.save(this.user).subscribe(result => { this.error = ''; },
+    this.userService.save(this.user).subscribe(result => { this.error = ''; this.message = 'User added'},
         error => this.error = error.error.message);
   }
 }

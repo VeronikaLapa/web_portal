@@ -14,17 +14,20 @@ export class UserLoginFormComponent {
   password: string;
   error: string;
   user: User;
+  message: string;
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
     this.error = '';
     this.login = '';
     this.password = '';
+    this.message = '';
   }
 
   onSubmit() {
     this.userService.login(this.login, this.password).subscribe(
       (res: any ) => {localStorage.setItem('token', res.token);
       localStorage.setItem('name', this.login);
-      this.error = ''; },
+      this.error = '';
+      this.message = 'Login done'; },
       error => this.error = error.error.message);
   }
 
